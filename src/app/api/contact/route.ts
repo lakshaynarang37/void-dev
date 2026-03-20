@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
 
 export async function POST(req: Request) {
   try {
@@ -30,7 +29,7 @@ export async function POST(req: Request) {
     });
 
     if (!response.ok) {
-        throw new Error("Free Backend Error");
+      throw new Error("Free Backend Error");
     }
 
     return NextResponse.json({ message: "Transmission received and stored in Cloud." });
