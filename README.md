@@ -29,16 +29,40 @@ A high-performance, maximalist portfolio built with **Next.js 15**, **Three.js**
 - **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
 - **Backend**: Airtable API & Resend API
 
-## 🚀 Deployment (Cloudflare Pages)
+## 🚀 100% Free Deployment (Google Sheets + Cloudflare)
 
-To deploy this portfolio on Cloudflare Pages, ensure the following **Environment Variables** are configured:
+This portfolio uses a completely free backend (zero signups, zero limits). 
+
+### Step 1: Create your "Excel" Sheet
+1. Open [Google Sheets](https://sheets.new) and create a new sheet.
+2. Go to **Extensions > Apps Script**.
+3. Paste the following code and click **Deploy > New Deployment**:
+   ```javascript
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var data = JSON.parse(e.postData.contents);
+     // Log to sheet: Date, Name, Email, Message
+     sheet.appendRow([new Date(), data.name, data.email, data.message]);
+     
+     // Send Email Notification (Gmail is free!)
+     MailApp.sendEmail({
+       to: "lakshaynarang6523@gmail.com",
+       subject: "New Transmission from " + data.name,
+       body: "Sender: " + data.name + " (" + data.email + ")\n\nMessage: " + data.message
+     });
+     
+     return ContentService.createTextOutput(JSON.stringify({result: "success"}))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+4. Copy the **Web App URL**.
+
+### Step 2: Configure Cloudflare
+In the Cloudflare Dashboard, add this **Environment Variable**:
 
 | Variable | Description |
 | --- | --- |
-| `AIRTABLE_API_KEY` | Your Airtable Personal Access Token |
-| `AIRTABLE_BASE_ID` | The ID of your Airtable Base |
-| `AIRTABLE_TABLE_NAME` | Name of the table (default: `Submissions`) |
-| `RESEND_API_KEY` | Your Resend API Key for email alerts |
+| `GOOGLE_SCRIPT_URL` | The Web App URL from Step 1 |
 
 ### Local Setup
 1. Clone the repo

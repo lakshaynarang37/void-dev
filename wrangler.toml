@@ -1,0 +1,7 @@
+name = "void-dev-portfolio"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = ".next"
+
+[vars]
+# Add your Google Apps Script URL here or in the Cloudflare Dashboard
+# GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/.../exec"
