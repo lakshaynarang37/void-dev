@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VOID.DEV — Lakshay Narang Portfolio
 
-## Getting Started
+A high-performance, maximalist portfolio built with **Next.js 15**, **Three.js**, and **Framer Motion**. Designed with a futuristic "hacker" aesthetic, featuring interactive 3D systems and a robust serverless backend.
 
-First, run the development server:
+![Portfolio Preview](public/preview.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌌 Core Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. 3D Systems (R3F)
+- **Skill Constellation**: An interactive 3D globe of 20+ technologies with Fibonacci-distributed nodes.
+- **DNA Helix Divider**: A parametric double-helix section transition symbolizing "Code DNA."
+- **Volumetric Particles**: A drifting field of 3,000 particles and floating wireframe geometry for deep parallax.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. High-Tech UI (Framer Motion + GSAP)
+- **Identity Terminal**: Live-boot sequencing and scrolling diagnostic logs.
+- **Tech Nexus**: A structured bento-style grid for comprehensive skill visualization.
+- **Smooth Interaction**: Integrated **Lenis** for high-fidelity inertial scrolling.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Serverless Backend
+- **Airtable Integration**: Real-time storage of contact form submissions in a spreadsheet format.
+- **Resend Notifications**: Instant email alerts for every new transmission.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **3D Engine**: [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) & [Three.js](https://threejs.org/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS
+- **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
+- **Backend**: Airtable API & Resend API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment (Cloudflare Pages)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To deploy this portfolio on Cloudflare Pages, ensure the following **Environment Variables** are configured:
 
-## Deploy on Vercel
+| Variable | Description |
+| --- | --- |
+| `AIRTABLE_API_KEY` | Your Airtable Personal Access Token |
+| `AIRTABLE_BASE_ID` | The ID of your Airtable Base |
+| `AIRTABLE_TABLE_NAME` | Name of the table (default: `Submissions`) |
+| `RESEND_API_KEY` | Your Resend API Key for email alerts |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Local Setup
+1. Clone the repo
+2. `npm install`
+3. `npm run dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Built with precision by VOID.DEV Core.*
