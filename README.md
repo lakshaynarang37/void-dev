@@ -1,73 +1,66 @@
-# VOID.DEV — Lakshay Narang Portfolio
+# 🌌 VOID.DEV — Lakshay Narang Portfolio v2
 
-A high-performance, maximalist portfolio built with **Next.js 15**, **Three.js**, and **Framer Motion**. Designed with a futuristic "hacker" aesthetic, featuring interactive 3D systems and a robust serverless backend.
+A high-performance, maximalist digital playground built with **Next.js 15**, **Three.js**, and **Framer Motion**. This portfolio features a futuristic "hacker" aesthetic, immersive 3D interactions, and a robust serverless architecture.
 
 ![Portfolio Preview](public/preview.png)
 
-## 🌌 Core Features
+---
 
-### 1. 3D Systems (R3F)
-- **Skill Constellation**: An interactive 3D globe of 20+ technologies with Fibonacci-distributed nodes.
-- **DNA Helix Divider**: A parametric double-helix section transition symbolizing "Code DNA."
-- **Volumetric Particles**: A drifting field of 3,000 particles and floating wireframe geometry for deep parallax.
+## 🚀 The Vision
 
-### 2. High-Tech UI (Framer Motion + GSAP)
-- **Identity Terminal**: Live-boot sequencing and scrolling diagnostic logs.
-- **Tech Nexus**: A structured bento-style grid for comprehensive skill visualization.
-- **Smooth Interaction**: Integrated **Lenis** for high-fidelity inertial scrolling.
+**VOID.DEV** is more than a portfolio; it's a technical demonstration of modern web capabilities. It blends complex 3D mathematics with high-fidelity UI/UX to create a "terminal-style" immersive experience.
 
-### 3. Serverless Backend
-- **Airtable Integration**: Real-time storage of contact form submissions in a spreadsheet format.
-- **Resend Notifications**: Instant email alerts for every new transmission.
+## 🛠️ Tech Stack & Architecture
 
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Core**: [Next.js 15](https://nextjs.org/) (App Router, Server Actions)
 - **3D Engine**: [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) & [Three.js](https://threejs.org/)
 - **Animation**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS
-- **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
-- **Backend**: Airtable API & Resend API
-
-## 🚀 100% Free Deployment (Google Sheets + Cloudflare)
-
-This portfolio uses a completely free backend (zero signups, zero limits). 
-
-### Step 1: Create your "Excel" Sheet
-1. Open [Google Sheets](https://sheets.new) and create a new sheet.
-2. Go to **Extensions > Apps Script**.
-3. Paste the following code and click **Deploy > New Deployment**:
-   ```javascript
-   function doPost(e) {
-     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-     var data = JSON.parse(e.postData.contents);
-     // Log to sheet: Date, Name, Email, Message
-     sheet.appendRow([new Date(), data.name, data.email, data.message]);
-     
-     // Send Email Notification (Gmail is free!)
-     MailApp.sendEmail({
-       to: "lakshaynarang6523@gmail.com",
-       subject: "New Transmission from " + data.name,
-       body: "Sender: " + data.name + " (" + data.email + ")\n\nMessage: " + data.message
-     });
-     
-     return ContentService.createTextOutput(JSON.stringify({result: "success"}))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   ```
-4. Copy the **Web App URL**.
-
-### Step 2: Configure Cloudflare
-In the Cloudflare Dashboard, add this **Environment Variable**:
-
-| Variable | Description |
-| --- | --- |
-| `GOOGLE_SCRIPT_URL` | The Web App URL from Step 1 |
-
-### Local Setup
-1. Clone the repo
-2. `npm install`
-3. `npm run dev`
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & Vanilla CSS
+- **Smooth Interaction**: [Lenis](https://lenis.darkroom.engineering/) (Inertial Scrolling)
+- **Execution Environment**: [Cloudflare Pages](https://pages.cloudflare.com/) 
+- **Backend Storage**: Google Apps Script & Google Sheets (100% Serverless)
 
 ---
-*Built with precision by VOID.DEV Core.*
+
+## 🌌 High-Fidelity Features
+
+### 1. Interactive 3D Systems
+- **Skill Constellation**: A Fibonacci-distributed 3D globe visualizing core technologies. Interactive nodes respond to pointer hover with orbital pathing.
+- **DNA Helix Divider**: A parametric double-helix section transition symbolizing the "Code DNA" philosophy.
+- **Volumetric Particles**: A custom field of 3,000+ particles with deep parallax logic for atmospheric depth.
+
+### 2. Immersive Terminal UI
+- **Identity Terminal**: A live-boot sequence system simulating a diagnostic OS startup.
+- **Tech Nexus**: A bento-style interactive grid for comprehensive skill visualization.
+- **Visual Effects**: Integrated matrix rain, scanlines, and CRT-flicker shaders for a cohesive "hacker" vibe.
+
+### 3. Serverless Connectivity
+- **Neural Transmission**: An integrated contact system using modern fetch-based protocols.
+- **GAS Integration**: Automated logging of transmissions to a secure cloud ledger with instant email notifications.
+
+---
+
+## 📂 Documentation
+
+Detailed project documentation and design specifications can be found in the root directory:
+- [Portfolio PRD](Lakshay_Narang_Portfolio_PRD.docx)
+- [Tech Stack Specs](Lakshay_Narang_TechStack_Specs.docx)
+- [Design & Build Spec](VOID_DEV_Design_and_Build_Spec.docx)
+
+## ⚡ Development
+
+```bash
+# Clone the repository
+git clone https://github.com/lakshaynarang37/void-dev.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+---
+
+*Engineered with precision by [Lakshay Narang](https://github.com/lakshaynarang37) / VOID.DEV Core.*
+
